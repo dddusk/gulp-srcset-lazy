@@ -10,7 +10,8 @@ var defaultOptions = {
 	decodeEntities: false,
 
 	// suffix: {1: '', 2: '@2x', 3: '@3x', 4: '@4x'}
-	suffix: {1: '', 2: '@2x', 3: '@3x'}
+ 	// suffix: {1: '', 2: '@2x', 3: '@3x'}
+	suffix: {1: '', 2: '@2x'}
 }
 
 var imageRetina = function(options){
