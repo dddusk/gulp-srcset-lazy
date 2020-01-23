@@ -1,7 +1,7 @@
 # gulp-responsive-imgz
-## (clone of the innactive `gulp-img-retina` repo)
+## (clone of the innactive `gulp-img-retina` repo with some improvements)
 
-[![Build Status](https://travis-ci.org/eliwilliamson/gulp-responsive-imgz.svg?branch=master)](https://travis-ci.org/eliwilliamson/gulp-responsive-imgz)
+[![Build Status](https://travis-ci.org/eliwilliamson/gulp-responsive-imgz.svg?branch=master)](https://travis-ci.org/eliwilliamson/gulp-responsive-imgzz)
 
 add img attribute 'srcset' for retina
 
@@ -10,13 +10,13 @@ You must have retina images in the folder which the original image in.
 
 ## Install
 
-`npm install gulp-responsive-imgz`
+`npm install gulp-responsive-imgzz`
 
 ## Usage
 
 ``` js
 var gulp = require('gulp');
-var imgRetina = require('gulp-responsive-imgz');
+var imgRetina = require('gulp-responsive-imgzz');
 
 var retinaOpts = {
     // Your options here.
@@ -44,7 +44,7 @@ You put html in:
 And get html out:
 ``` html
 <figure>
-	<img src="images/default/example.jpg" alt="example image" srcset="images/default/example.jpg 1x, images/default/example@2x.jpg 2x, images/default/example@3x.jpg 3x" />
+	<img src="images/default/example.jpg" alt="example image" srcset="images/default/example.jpg 1x, images/default/example@2x.jpg 2x, images/default/example@3x.jpg 3x, images/default/example-mobile.jpg 480w" />
 </figure>
 ```
 
@@ -53,10 +53,32 @@ And get html out:
 ### options.suffix
 Type: ```Object```
 
-Default: ```{1: '', 2: '@2x'}```
+Default:
+
+```
+imgRetina({
+  suffix: {
+    '1x': '',
+    '2x': '@2x',
+    '3x': '@3x'
+  }
+})
+```
 
 The suffix will insert to image's path, the key is resolution, and value is suffix.
 
+You can also use width srcset params eg.
+
+```
+imgRetina({
+  suffix: {
+    '1x': '',
+    '2x': '@2x',
+    '3x': '@3x',
+    '480w': '-mobile'
+  }
+})
+```
 
 ## Note
 
