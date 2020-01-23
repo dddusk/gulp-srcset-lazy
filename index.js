@@ -52,8 +52,8 @@ var srcsetLazy = function(options){
 				tmpSrc.push( match[1]+options.suffix[key]+match[2]+' '+key );
 			}
 
-			_this.attr('data-srcset', tmpSrc.join(', '));
       _this.attr('data-src', src);
+			_this.attr('data-srcset', tmpSrc.join(', '));
 		});
 		// console.log($.html());
 
