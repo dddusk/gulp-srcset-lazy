@@ -1,12 +1,10 @@
 # gulp-responsive-imgz
 ## (clone of the innactive `gulp-img-retina` repo with some improvements)
 
-[![Build Status](https://travis-ci.org/eliwilliamson/gulp-responsive-imgz.svg?branch=master)](https://travis-ci.org/eliwilliamson/gulp-responsive-imgzz)
-
-add img attribute 'srcset' for retina
+Add img attribute 'srcset' for variable density/width image loading.
 
 ## Prerequisites
-You must have retina images in the folder which the original image in.
+You must have corresponding images in the folder which the original image in.
 
 ## Install
 
