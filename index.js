@@ -8,10 +8,11 @@ var reImageSrc = /^((?:(?:http|https):\/\/)?(?:.+))(\.(?:gif|png|jpg|jpeg|webp))
 
 var defaultOptions = {
 	decodeEntities: false,
-
-	// suffix: {1: '', 2: '@2x', 3: '@3x', 4: '@4x'}
- 	// suffix: {1: '', 2: '@2x', 3: '@3x'}
-	suffix: {1: '', 2: '@2x'}
+ 	suffix: {
+          '1x': '',
+          '2x': '@2x',
+          '3x': '@3x'
+        }
 }
 
 var imageRetina = function(options){
@@ -25,7 +26,7 @@ var imageRetina = function(options){
 		}
 
 		if (file.isStream()){
-			cb(new gutil.PluginError('gulp-img-retina', 'Streaming not supported'));
+			cb(new gutil.PluginError('gulp-responsive-imgzzz', 'Streaming not supported'));
 			return;
 		}
 
@@ -48,7 +49,7 @@ var imageRetina = function(options){
 			}
 
 			for( var key in options.suffix ){
-				tmpSrc.push( match[1]+options.suffix[key]+match[2]+' '+key+'x' );
+				tmpSrc.push( match[1]+options.suffix[key]+match[2]+' '+key );
 			}
 
 			_this.attr('srcset', tmpSrc.join(', '));
