@@ -1,8 +1,3 @@
-/*!
- * gulp-img-retina | https://github.com/germanyt/gulp-img-retina
- * Copyright (c) Gavin Tang (@germanyt).
- */
-
 /* global describe, it */
 
 'use strict';
