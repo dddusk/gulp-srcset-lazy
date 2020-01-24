@@ -51,7 +51,7 @@ var srcsetLazy = function(options){
 
 			for( var key in options.suffix ){
 				tmpSrc.push( match[1]+options.suffix[key]+' '+key );
-        tmpFormat.push(match[2]);
+        var tmpFormat = match[2];
 			}
 
       _this.removeAttr('src').html();
