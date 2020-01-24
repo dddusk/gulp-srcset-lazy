@@ -1,10 +1,10 @@
 # gulp-srcset-lazy
 ## (clone of the innactive `gulp-img-retina` repo with some improvements)
 
-Add img attribute 'srcset' for variable density/width image loading for lazyload data attributes.
+Add img attribute 'srcset' for variable density/width image loading for lazyload data attributes (specifically webp).
 
 ## Prerequisites
-You must have corresponding images in the folder which the original image in.
+You must have webp images in the folder which the original image in.
 
 ## Install
 
@@ -35,14 +35,14 @@ gulp.task('views', function() {
 You put html in:
 ``` html
 <figure>
-	<img src="images/default/example.jpg" alt="example image" />
+	<img src="images/default/example.webp" alt="example image" />
 </figure>
 ```
 
 And get html out:
 ``` html
 <figure>
-	<img data-src="images/default/example.jpg" alt="example image" data-srcset="images/default/example.jpg 1x, images/default/example@2x.jpg 2x, images/default/example@3x.jpg 3x, images/default/example-mobile.jpg 480w" />
+	<img data-src="images/default/example.webp" alt="example image" data-srcset="images/default/example.webp 1x, images/default/example@2x.webp 2x, images/default/example@3x.webp 3x, images/default/example-mobile.webp 480w" />
 </figure>
 ```
 
@@ -56,9 +56,9 @@ Default:
 ```
 srcsetLazy({
   suffix: {
-    '1x': '',
-    '2x': '@2x',
-    '3x': '@3x'
+    '1x': '.webp',
+    '2x': '@2x.webp',
+    '3x': '@3x.webp'
   }
 })
 ```
@@ -70,10 +70,10 @@ You can also use width srcset params eg.
 ```
 srcsetLazy({
   suffix: {
-    '1x': '',
-    '2x': '@2x',
-    '3x': '@3x',
-    '480w': '-mobile'
+    '1x': '.webp',
+    '2x': '@2x.webp',
+    '3x': '@3x.webp',
+    '480w': '-mobile.webp'
   }
 })
 ```

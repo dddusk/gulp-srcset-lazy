@@ -9,9 +9,9 @@ var reImageSrc = /^((?:(?:http|https):\/\/)?(?:.+))(\.(?:gif|png|jpg|jpeg|webp))
 var defaultOptions = {
 	decodeEntities: false,
  	suffix: {
-    '1x': '',
-    '2x': '@2x',
-    '3x': '@3x'
+    '1x': '.webp',
+    '2x': '@2x.webp',
+    '3x': '@3x.webp'
   }
 }
 
@@ -41,6 +41,7 @@ var srcsetLazy = function(options){
 			var src = _this.attr('src');
 
 			var tmpSrc = [];
+      var tmpFormat = '';
 			var match = src.match(reImageSrc);
 
 			// not a valid src attribute
@@ -49,10 +50,12 @@ var srcsetLazy = function(options){
 			}
 
 			for( var key in options.suffix ){
-				tmpSrc.push( match[1]+options.suffix[key]+match[2]+' '+key );
+				tmpSrc.push( match[1]+options.suffix[key]+' '+key );
+        tmpFormat.push(match[2]);
 			}
 
       _this.removeAttr('src').html();
+      _this.attr('data-format', tmpFormat);
       _this.attr('data-src', src);
 			_this.attr('data-srcset', tmpSrc.join(', '));
 		});
